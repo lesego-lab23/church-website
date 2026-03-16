@@ -1,0 +1,14 @@
+body{
+font-family: 'Poppins', sans-serif;
+background:#FFF9F2;
+color:#1E293B;
+margin:0;
+}
+
+h1,h2,h3{
+font-family:'Playfair Display', serif;
+}
+
+.section{
+padding:80px 10%;
+}

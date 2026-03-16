@@ -1,0 +1,32 @@
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.service-card{
+background:white;
+border-radius:14px;
+padding:35px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-top:5px solid #F59E0B;
+transition:0.3s;
+}
+
+.service-card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+.service-icon{
+font-size:28px;
+color:#F59E0B;
+margin-bottom:15px;
+}
+
+.service-time{
+color:#14B8A6;
+font-weight:600;
+margin-bottom:10px;
+}

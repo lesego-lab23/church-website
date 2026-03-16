@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class GivingComponent {
 
+  copy(text: string) {
+navigator.clipboard.writeText(text);
+alert("Copied to clipboard!");
+}
+
 }
