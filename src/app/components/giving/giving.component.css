@@ -1,132 +1,26 @@
-.giving-section{
-padding:100px 10%;
-background:#FFF9F2;
-}
-
-/* HEADER */
-
-.giving-header{
-text-align:center;
-max-width:700px;
-margin:auto;
-margin-bottom:70px;
-}
-
-.giving-header lucide-icon{
-color:#F59E0B;
-width:40px;
-height:40px;
-margin-bottom:15px;
-}
-
-.giving-header h1{
-font-size:48px;
-margin-bottom:15px;
-}
-
-.verse{
-font-size:18px;
-color:#64748B;
-}
-
-.scripture{
-font-style:italic;
-color:#64748B;
-margin-top:5px;
-}
-
-/* GRID */
-
-.giving-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-}
-
-/* BANK DETAILS */
-
-.bank-details h2{
-margin-bottom:20px;
-}
-
-.detail-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-border-bottom:1px solid #E2E8F0;
-}
-
-.detail-left{
-display:flex;
-gap:15px;
-align-items:center;
-}
-
-.detail-left lucide-icon{
-color:#F59E0B;
-}
-
-.label{
-font-size:12px;
-color:#94A3B8;
-text-transform:uppercase;
-letter-spacing:1px;
-}
-
-.value{
-font-size:18px;
-font-weight:500;
-}
-
-/* COPY BUTTON */
-
-.copy-btn{
-background:#F1F5F9;
-border:none;
-padding:8px;
-border-radius:6px;
-cursor:pointer;
-}
-
-.copy-btn:hover{
-background:#F59E0B;
-color:white;
-}
-
-/* QR CARD */
-
-.qr-card{
-background:white;
-padding:40px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-text-align:center;
-}
-
-.qr-container{
-/* background:#F1F5F9; */
-padding:40px;
-border-radius:10px;
-margin:20px 0;
-}
-
-.qr-container img{
-width:250px;
-
-}
-
-.qr-text{
-color:#64748B;
-font-size:14px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.giving-grid{
-grid-template-columns:1fr;
-}
-
-}
+.giving-section{padding:100px 10%;background:var(--bg-sage);}
+.giving-header{text-align:center;max-width:700px;margin:auto auto 70px;}
+.giving-header lucide-icon{color:var(--accent);width:40px;height:40px;margin-bottom:15px;}
+.giving-header h1{font-size:48px;margin-bottom:15px;}
+.verse{font-size:18px;color:var(--text-muted);}
+.scripture{font-style:italic;color:var(--text-muted);margin-top:5px;}
+.giving-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+.bank-details h2{margin-bottom:20px;}
+.detail-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+.detail-left{display:flex;gap:15px;align-items:center;min-width:0;}
+.detail-left lucide-icon{color:var(--accent);}
+.label{font-size:12px;color:#809283;text-transform:uppercase;letter-spacing:1px;}
+.value{font-size:18px;font-weight:500;word-break:break-word;}
+.copy-btn{background:var(--surface-alt);border:none;width:44px;height:44px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s ease,color .2s ease,transform .2s ease;}
+.copy-btn:hover{background:var(--accent);color:#fff;}
+.copy-btn:active{transform:scale(.96);}
+.copy-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.qr-card{background:var(--surface);padding:40px;border-radius:12px;box-shadow:var(--shadow);text-align:center;}
+.qr-container{padding:40px;border-radius:10px;margin:20px 0;}
+.qr-container img{width:250px;}
+.qr-text{color:var(--text-muted);font-size:14px;}
+.toast{position:fixed;right:24px;bottom:24px;z-index:1000;max-width:min(360px,calc(100vw - 32px));padding:14px 18px;border-radius:12px;background:var(--accent-strong);color:#fff;box-shadow:0 14px 30px rgba(36,51,42,.24);font-size:14px;line-height:1.4;animation:toast-slide-in .2s ease;}
+.toast-error{background:#991B1B;}
+@keyframes toast-slide-in{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:900px){.giving-grid{grid-template-columns:1fr;}.giving-section{padding:80px 6%;}}
+@media(max-width:600px){.giving-header h1{font-size:36px;}.detail-row{align-items:flex-start;}.detail-left{gap:12px;}.label{font-size:11px;}.value{font-size:16px;}.copy-btn{width:40px;height:40px;}.qr-card{padding:28px 20px;}.qr-container{padding:20px;}.qr-container img{width:100%;max-width:250px;}.toast{left:16px;right:16px;bottom:16px;max-width:none;}}

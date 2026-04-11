@@ -36,7 +36,7 @@ not reluctantly or under compulsion, for God loves a cheerful giver."
 
 </div>
 
-<button class="copy-btn">
+<button class="copy-btn" type="button" (click)="copy('ABSA', 'Bank name')" aria-label="Copy bank name">
 <lucide-icon name="copy"></lucide-icon>
 </button>
 
@@ -56,7 +56,7 @@ not reluctantly or under compulsion, for God loves a cheerful giver."
 
 </div>
 
-<button class="copy-btn">
+<button class="copy-btn" type="button" (click)="copy('POTTERS HOUSE', 'Account name')" aria-label="Copy account name">
 <lucide-icon name="copy"></lucide-icon>
 </button>
 
@@ -76,7 +76,7 @@ not reluctantly or under compulsion, for God loves a cheerful giver."
 
 </div>
 
-<button class="copy-btn">
+<button class="copy-btn" type="button" (click)="copy('9100563408', 'Account number')" aria-label="Copy account number">
 <lucide-icon name="copy"></lucide-icon>
 </button>
 
@@ -96,7 +96,7 @@ not reluctantly or under compulsion, for God loves a cheerful giver."
 
 </div>
 
-<button class="copy-btn">
+<button class="copy-btn" type="button" (click)="copy('632005', 'Branch code')" aria-label="Copy branch code">
 <lucide-icon name="copy"></lucide-icon>
 </button>
 
@@ -126,3 +126,13 @@ Scan this QR code and you will be redirected to our snapscan portal.
 </div>
 
 </section>
+
+<div
+  *ngIf="isToastVisible"
+  class="toast"
+  [class.toast-error]="toastType === 'error'"
+  role="status"
+  aria-live="polite"
+>
+  {{ toastMessage }}
+</div>

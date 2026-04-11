@@ -1,7 +1,20 @@
+:root{
+--bg-sage:#E8F0E6;
+--surface:#F9FCF7;
+--surface-alt:#F2F7EF;
+--text:#24332A;
+--text-muted:#5E7265;
+--accent:#5F8A66;
+--accent-strong:#3E5F46;
+--accent-soft:#CFE0CC;
+--border:#D5E1D2;
+--shadow:0 10px 25px rgba(36,51,42,.08);
+}
+
 body{
 font-family: 'Poppins', sans-serif;
-background:#FFF9F2;
-color:#1E293B;
+background:var(--bg-sage);
+color:var(--text);
 margin:0;
 }
 

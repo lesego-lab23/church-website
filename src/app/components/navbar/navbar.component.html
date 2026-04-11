@@ -4,12 +4,22 @@
     <h2>The Potters House Melville Church</h2>
   </div>
 
-  <ul class="nav-links">
-    <li><a routerLink="">Home</a></li>
-    <li><a routerLink="/services">Services</a></li>
-    <li><a routerLink="/events">Events</a></li>
-    <li><a routerLink="/giving">Giving</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
+  <button
+    class="menu-toggle"
+    type="button"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="isMenuOpen"
+    aria-label="Toggle navigation menu"
+  >
+    <lucide-icon [name]="isMenuOpen ? 'x' : 'menu'"></lucide-icon>
+  </button>
+
+  <ul class="nav-links" [class.nav-open]="isMenuOpen">
+    <li><a routerLink="" (click)="closeMenu()">Home</a></li>
+    <li><a routerLink="/services" (click)="closeMenu()">Services</a></li>
+    <li><a routerLink="/events" (click)="closeMenu()">Events</a></li>
+    <li><a routerLink="/giving" (click)="closeMenu()">Giving</a></li>
+    <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
   </ul>
 
 </nav>
