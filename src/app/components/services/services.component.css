@@ -23,6 +23,8 @@ padding:35px;
 box-shadow:var(--shadow);
 border-top:5px solid var(--accent);
 transition:0.3s;
+font: 400 16px/1.5 'Libre, baskerville', serif;
+
 }
 
 .service-card:hover{
