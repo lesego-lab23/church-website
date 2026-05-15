@@ -2,10 +2,10 @@
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 8%;
-background:#1F3426;
+padding:20px 8%;
+background:#1d243a;
 color:white;
-box-shadow:0 8px 20px rgba(31,52,38,.22);
+box-shadow:0 8px 20px rgba(31, 44, 35, 0.22);
 position:sticky;
 top:0;
 z-index:1000;
@@ -28,6 +28,7 @@ padding:0;
 .nav-links a{
 color:white;
 text-decoration:none;
+font: 500 16px/1.5 'Libre, baskerville', serif;
 font-weight:500;
 transition:0.3s;
 }

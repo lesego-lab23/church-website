@@ -42,7 +42,7 @@
 
 <lucide-icon name="clock"></lucide-icon>
 
-<h3>Service Times</h3>
+<h3> Main Service Times</h3>
 
 <p>Sundays: 10:30 AM & 17:00 PM</p>
 <p>Wednesdays: 7:00 PM</p>
@@ -67,8 +67,8 @@
 <h3>Our Mission</h3>
 
 <p>
-To love God, love people,
-and make disciples who transform the world.
+ Our mission is to help overcome the difficulties that life presents
+  through a practical demonstration of how to live the Chrstian life by means of discipleship. 
 </p>
 
 </div>
@@ -92,5 +92,33 @@ Our core experiences include salvation, water baptism, and Holy Spirit baptism, 
 <a routerLink="/services" class="about-link">
 Learn about our services →
 </a>
+
+</section>
+
+<section class="leaders">
+
+<p class="section-tag">OUR LEADERS</p>
+
+<h2>Meet the Team Serving Our Church</h2>
+
+<p class="leaders-intro">
+Get to know the people who help guide the church through teaching, discipleship, and practical care for the community.
+</p>
+
+<div class="leaders-grid">
+
+  <article class="leader-card" *ngFor="let leader of leaders">
+
+    <img [src]="leader.image" [alt]="leader.name" class="leader-image">
+
+    <div class="leader-content">
+      <h3>{{ leader.name }}</h3>
+      <p class="leader-title">{{ leader.title }}</p>
+      <p class="leader-description">{{ leader.description }}</p>
+    </div>
+
+  </article>
+
+</div>
 
 </section>
