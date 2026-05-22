@@ -145,6 +145,19 @@ background:linear-gradient(180deg, #f7f3ec 0%, #eef3ea 100%);
 text-align:center;
 }
 
+.leaders .section-tag{
+display:block;
+margin:0 0 10px;
+color:var(--accent-strong);
+font-weight:600;
+}
+
+.leaders h2{
+font-size:40px;
+margin:0 0 36px;
+color:var(--text);
+}
+
 .leaders-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -265,6 +278,11 @@ font-size:16px;
 
 .leaders{
 padding:64px 6%;
+}
+
+.leaders h2{
+font-size:32px;
+margin-bottom:28px;
 }
 
 .leader-content{
