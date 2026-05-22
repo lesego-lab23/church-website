@@ -1,25 +1,32 @@
 <nav class="navbar">
 
   <div class="logo">
+    <img
+      src="assets/pottershouse-logo.png"
+      alt="The Potters House logo"
+      class="navbar-logo-image"
+    >
     <h2>The Potters House Melville Church</h2>
   </div>
 
-  <button
-    class="menu-toggle"
-    type="button"
-    (click)="toggleMenu()"
-    [attr.aria-expanded]="isMenuOpen"
-    aria-label="Toggle navigation menu"
-  >
-    <lucide-icon [name]="isMenuOpen ? 'x' : 'menu'"></lucide-icon>
-  </button>
+  <div class="nav-side">
+    <button
+      class="menu-toggle"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Toggle navigation menu"
+    >
+      <lucide-icon [name]="isMenuOpen ? 'x' : 'menu'"></lucide-icon>
+    </button>
 
-  <ul class="nav-links" [class.nav-open]="isMenuOpen">
-    <li><a routerLink="" (click)="closeMenu()">Home</a></li>
-    <li><a routerLink="/services" (click)="closeMenu()">Services</a></li>
-    <li><a routerLink="/events" (click)="closeMenu()">Events</a></li>
-    <li><a routerLink="/giving" (click)="closeMenu()">Giving</a></li>
-    <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
-  </ul>
+    <ul class="nav-links" [class.nav-open]="isMenuOpen">
+      <li><a routerLink="" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/services" (click)="closeMenu()">Services</a></li>
+      <li><a routerLink="/events" (click)="closeMenu()">Events</a></li>
+      <li><a routerLink="/giving" (click)="closeMenu()">Giving</a></li>
+      <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+    </ul>
+  </div>
 
 </nav>
