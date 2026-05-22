@@ -97,14 +97,6 @@ Learn about our services →
 
 <section class="leaders">
 
-<p class="section-tag">OUR LEADERS</p>
-
-<h2>Meet the Team Serving Our Church</h2>
-
-<p class="leaders-intro">
-Get to know the people who help guide the church through teaching, discipleship, and practical care for the community.
-</p>
-
 <div class="leaders-grid">
 
   <article class="leader-card" *ngFor="let leader of leaders">
@@ -113,6 +105,7 @@ Get to know the people who help guide the church through teaching, discipleship,
 
     <div class="leader-content">
       <h3>{{ leader.name }}</h3>
+      <p class="leader-title">{{ leader.title }}</p>
     </div>
 
   </article>

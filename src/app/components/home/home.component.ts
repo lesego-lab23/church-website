@@ -9,15 +9,18 @@ export class HomeComponent {
   leaders = [
     {
       image: 'assets/leader-1.jpeg',
-      name: 'Pastor Riaan & Mirjam Botha'
+      name: 'Riaan Botha',
+      title: 'Senior Pastor'
     },
     {
       image: 'assets/leader-2.jpeg',
-      name: 'Aaron & Lusanda Matentshe'
+      name: 'Aaron Matentshe',
+      title: 'Outreach Director'
     },
     {
       image: 'assets/leader-3.jpeg',
-      name: 'Pieter & Safiya Mahlangu'
+      name: 'Pieter Mahlangu',
+      title: 'Evangelist'
     }
   ];
 }
