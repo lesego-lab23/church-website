@@ -4,20 +4,22 @@ text-align:center;
 background:var(--bg-sage);
 }
 
+.events-section .section-tag{
+color:#2563eb;
+}
+
 .event-card{
-display:flex;
-gap:30px;
 background:var(--surface);
-padding:30px;
-border-radius:12px;
-margin-top:40px;
-box-shadow:var(--shadow);
+border:1px solid #dfe5ee;
+border-radius:10px;
+padding:28px 24px;
+box-shadow:0 1px 2px rgba(15,23,42,.04);
 text-align:left;
 }
 
 .event-month{
 max-width:900px;
-margin:48px auto 0;
+margin:88px auto 0;
 }
 
 .month-heading{
@@ -31,21 +33,45 @@ color:var(--text);
 margin-top:20px;
 }
 
-.event-date{
-background:var(--accent-strong);
-width:90px;
-height:90px;
-border-radius:10px;
-color:white;
+.event-header{
 display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-font-weight:bold;
+align-items:flex-start;
+justify-content:space-between;
+gap:18px;
+margin-bottom:12px;
 }
 
-.event-details h3{
-margin-bottom:10px;
+.event-header h3{
+color:#0f2344;
+font-size:20px;
+line-height:1.25;
+margin:0;
+}
+
+
+
+.event-corner-icon::after{
+content:"";
+position:absolute;
+right:-4px;
+top:2px;
+width:2px;
+height:5px;
+background:#c91d1d;
+border-radius:0 2px 2px 0;
+}
+
+.event-badge{
+display:inline-flex;
+align-items:center;
+min-height:22px;
+padding:3px 12px;
+border-radius:999px;
+background:#dbeafe;
+color:#0f2344;
+font-size:12px;
+font-weight:700;
+line-height:1;
 }
 
 .section-description{
@@ -56,9 +82,39 @@ font-size:18px;
 line-height:1.6;
 }
 
-.event-details p{
-color:var(--text-muted);
-line-height:1.6;
+.event-description{
+color:#405f8d;
+font-size:16px;
+line-height:1.55;
+margin:18px 0 16px;
+}
+
+.event-divider{
+height:1px;
+background:#dde3eb;
+margin-bottom:16px;
+}
+
+.event-meta{
+display:grid;
+gap:12px;
+}
+
+.event-meta p{
+display:flex;
+align-items:center;
+gap:12px;
+color:#0f2344;
+font-size:14px;
+line-height:1.4;
+margin:0;
+}
+
+.event-meta lucide-icon{
+color:#0f2344;
+flex:0 0 auto;
+width:16px;
+height:16px;
 }
 
 @media(max-width:900px){
@@ -77,7 +133,7 @@ font-size:36px;
 }
 
 .event-month{
-margin-top:40px;
+margin-top:56px;
 }
 
 .month-heading{
@@ -85,18 +141,11 @@ font-size:24px;
 }
 
 .event-card{
-flex-direction:column;
-gap:20px;
 padding:24px 20px;
 }
 
-.event-date{
-width:72px;
-height:72px;
-}
-
-.event-details{
-text-align:left;
+.event-header h3{
+font-size:19px;
 }
 
 .section-description{

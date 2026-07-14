@@ -12,25 +12,37 @@ in our church community.
 <div class="event-month" *ngFor="let group of eventGroups">
 <h2 class="month-heading">{{ group.month }}</h2>
 
-<div class="event-card" *ngFor="let event of group.events">
+<article class="event-card" *ngFor="let event of group.events">
 
-<div class="event-date">
-
-<span>{{ event.monthShort }}</span>
-
-<h2>{{ event.day }}</h2>
-
-</div>
-
-<div class="event-details">
-
+<div class="event-header">
 <h3>{{ event.title }}</h3>
 
-<p *ngFor="let scheduleItem of event.schedule">{{ scheduleItem }}</p>
+</div>
 
-<p>{{ event.description }}</p>
+<span class="event-badge">{{ event.monthShort }} {{ event.day }}</span>
+
+<p class="event-description">{{ event.description }}</p>
+
+<div class="event-divider"></div>
+
+<div class="event-meta">
+<p *ngFor="let scheduleItem of event.schedule">
+<lucide-icon name="calendar-days" size="16"></lucide-icon>
+<span>{{ scheduleItem }}</span>
+</p>
+
+<p>
+<lucide-icon name="clock" size="16"></lucide-icon>
+<span>{{ event.time }}</span>
+</p>
+
+<p>
+<lucide-icon name="map-pin" size="16"></lucide-icon>
+<span>{{ event.location }}</span>
+</p>
 </div>
-</div>
+
+</article>
 </div>
 
 </section>
