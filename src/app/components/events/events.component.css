@@ -15,6 +15,22 @@ box-shadow:var(--shadow);
 text-align:left;
 }
 
+.event-month{
+max-width:900px;
+margin:48px auto 0;
+}
+
+.month-heading{
+text-align:left;
+font-size:28px;
+margin:0;
+color:var(--text);
+}
+
+.event-month .event-card{
+margin-top:20px;
+}
+
 .event-date{
 background:var(--accent-strong);
 width:90px;
@@ -58,6 +74,14 @@ padding:64px 5%;
 
 .events-section h1{
 font-size:36px;
+}
+
+.event-month{
+margin-top:40px;
+}
+
+.month-heading{
+font-size:24px;
 }
 
 .event-card{

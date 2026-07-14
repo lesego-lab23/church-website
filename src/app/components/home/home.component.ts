@@ -13,7 +13,7 @@ export class HomeComponent {
       title: 'Senior Pastor'
     },
     {
-      image: 'assets/leader-2.jpeg',
+      image: 'assets/leader-2.png',
       name: 'Aaron Matentshe',
       title: 'Outreach Director'
     },

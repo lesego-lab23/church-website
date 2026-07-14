@@ -9,7 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ServicesComponent } from './components/services/services.component';
 import { GivingComponent } from './components/giving/giving.component';
-import { Clock, Facebook, Heart, Instagram, LucideAngularModule, Mail, MapPin, Menu, Phone, Twitter, X, Youtube } from 'lucide-angular';
+import { CalendarDays, Clock, Facebook, Heart, Instagram, LucideAngularModule, Mail, MapPin, Menu, Phone, Twitter, X, Youtube } from 'lucide-angular';
 import { Building, Copy, CreditCard } from 'lucide-angular';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { Building, Copy, CreditCard } from 'lucide-angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LucideAngularModule.pick({ Copy, Building, CreditCard, Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, Twitter, Heart, Menu, X }),
+    LucideAngularModule.pick({ Copy, Building, CreditCard, Phone, Mail, MapPin, Clock, CalendarDays, Facebook, Instagram, Youtube, Twitter, Heart, Menu, X }),
   ],
   providers: [],
   bootstrap: [AppComponent]

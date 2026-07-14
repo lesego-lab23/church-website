@@ -4,51 +4,39 @@
 
 <div class="services-grid">
 
-<div class="service-card">
+<article class="service-card" *ngFor="let service of services">
 
-<h3>Sunday Morning Worship</h3>
-
-<p class="service-time">10:30 AM & 5:00 PM</p>
-
-<p>
-Join us for worship, prayer and a message from God's word. Please note that services are not repeated.
-</p>
-
+<div class="service-header">
+<h3>{{ service.title }}</h3>
+<span class="service-corner-icon" aria-hidden="true"></span>
 </div>
 
-<div class="service-card">
+<span class="service-badge">{{ service.badge }}</span>
 
-<h3>Wednesday Evening Service</h3>
-
-<p class="service-time">7:00 PM</p>
-
-<p>
-Join us for a midweek service to refresh your spirit.
+<p class="service-description">
+{{ service.description }}
 </p>
 
-</div>
+<div class="service-divider"></div>
 
-<div class="service-card">
-
-<h3>Youth Service</h3>
-
-<p class="service-time">Friday 6:00 PM</p>
+<div class="service-meta">
 <p>
-Join us for a fun and engaging service designed for our youth with fellowship games and relevant teaching.
+<lucide-icon name="calendar-days" size="16"></lucide-icon>
+<span>{{ service.day }}</span>
 </p>
 
-</div>
-
-<div class="service-card">
-
-<h3>ONE80 Concerts</h3>
-
-<p class="service-time">Saturday 7:00 pM</p>
 <p>
-Join us for a night of music, poetry and drama hosted by our youth.
+<lucide-icon name="clock" size="16"></lucide-icon>
+<span>{{ service.time }}</span>
 </p>
 
+<p>
+<lucide-icon name="map-pin" size="16"></lucide-icon>
+<span>{{ service.location }}</span>
+</p>
 </div>
+
+</article>
 
 </div>
 
