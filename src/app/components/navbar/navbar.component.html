@@ -1,30 +1,41 @@
-<nav class="navbar">
+<header class="navbar" [class.is-scrolled]="isScrolled">
+  <div class="shell navbar-inner">
 
-  <div class="logo">
-    <img
-      src="assets/pottershouse-logo.png"
-      alt="The Potters House logo"
-      class="navbar-logo-image"
+    <a class="brand" routerLink="/home" (click)="closeMenu()">
+      <span class="brand-mark" role="img" aria-label="The Potter's House logo"></span>
+      <span class="brand-name">
+        <span class="brand-name-top">The Potter's House</span>
+        <span class="brand-name-bottom">Melville Church</span>
+      </span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-controls="primary-nav"
+      [attr.aria-label]="isMenuOpen ? 'Close menu' : 'Open menu'"
     >
-    <h2>The Potters House Melville Church</h2>
+      <lucide-icon [name]="isMenuOpen ? 'x' : 'menu'" size="24"></lucide-icon>
+    </button>
+
+    <nav id="primary-nav" class="nav" [class.is-open]="isMenuOpen" aria-label="Primary">
+      <ul class="nav-links">
+        <li *ngFor="let item of navItems">
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMenu()"
+          >{{ item.label }}</a>
+        </li>
+      </ul>
+
+      <span class="nav-divider" aria-hidden="true"></span>
+
+      <a class="btn btn-primary nav-cta" routerLink="/services" (click)="closeMenu()">Plan a visit</a>
+    </nav>
+
   </div>
-
-  <button
-    class="menu-toggle"
-    type="button"
-    (click)="toggleMenu()"
-    [attr.aria-expanded]="isMenuOpen"
-    aria-label="Toggle navigation menu"
-  >
-    <lucide-icon [name]="isMenuOpen ? 'x' : 'menu'"></lucide-icon>
-  </button>
-
-  <ul class="nav-links" [class.nav-open]="isMenuOpen">
-    <li><a routerLink="" (click)="closeMenu()">Home</a></li>
-    <li><a routerLink="/services" (click)="closeMenu()">Services</a></li>
-    <li><a routerLink="/events" (click)="closeMenu()">Events</a></li>
-    <li><a routerLink="/giving" (click)="closeMenu()">Giving</a></li>
-    <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
-  </ul>
-
-</nav>
+</header>

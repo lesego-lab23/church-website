@@ -10,7 +10,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ServicesComponent } from './components/services/services.component';
 import { GivingComponent } from './components/giving/giving.component';
 import { CalendarDays, Clock, Facebook, Heart, Instagram, LucideAngularModule, Mail, MapPin, Menu, Phone, Twitter, X, Youtube } from 'lucide-angular';
-import { Building, Copy, CreditCard } from 'lucide-angular';
+import { ArrowUp, Building, Copy, CreditCard } from 'lucide-angular';
+import { RevealDirective } from './reveal.directive';
+import { LocationMapComponent } from './components/location-map/location-map.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { Building, Copy, CreditCard } from 'lucide-angular';
     NavbarComponent,
     ContactComponent,
     ServicesComponent,
-    GivingComponent
+    GivingComponent,
+    LocationMapComponent,
+    RevealDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LucideAngularModule.pick({ Copy, Building, CreditCard, Phone, Mail, MapPin, Clock, CalendarDays, Facebook, Instagram, Youtube, Twitter, Heart, Menu, X }),
+    LucideAngularModule.pick({ ArrowUp, Copy, Building, CreditCard, Phone, Mail, MapPin, Clock, CalendarDays, Facebook, Instagram, Youtube, Twitter, Heart, Menu, X }),
   ],
   providers: [],
   bootstrap: [AppComponent]

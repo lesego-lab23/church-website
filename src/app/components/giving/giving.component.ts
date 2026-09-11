@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./giving.component.css']
 })
 export class GivingComponent {
+  readonly bankDetails = [
+    { label: 'Bank', value: 'ABSA' },
+    { label: 'Account name', value: 'POTTERS HOUSE' },
+    { label: 'Account number', value: '9100563408' },
+    { label: 'Branch code', value: '632005' }
+  ];
+
   toastMessage = '';
   toastType: 'success' | 'error' = 'success';
   isToastVisible = false;

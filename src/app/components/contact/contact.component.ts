@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CHURCH_LOCATION } from '../../data/location';
 
 @Component({
   selector: 'app-contact',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-
+  readonly location = CHURCH_LOCATION;
 }

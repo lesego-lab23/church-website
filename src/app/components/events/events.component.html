@@ -1,48 +1,70 @@
-<section class="events-section">
+<header class="page-head">
+  <div class="shell"><div class="page-head-inner">
+    <p class="eyebrow">What's happening</p>
+    <hr class="rule">
+    <h1>Upcoming events</h1>
+    <p class="lead">
+      Alongside the weekly services, these are the things worth putting in your diary.
+      Everyone is welcome at all of them.
+    </p>
+    <p class="page-meta">{{ diarySummary }}</p>
+    </div>
+  </div>
+</header>
 
-<p class="section-tag">WHAT'S HAPPENING</p>
+<section class="section calendar">
+  <div class="shell">
 
-<h1>Upcoming Events</h1>
+    <div class="month-block" *ngFor="let group of eventGroups; let i = index" [appReveal]="i * 60">
 
-<p class="section-description">
-Stay connected and be part of what God is doing
-in our church community.
-</p>
+      <h2 class="month-heading">
+        <span class="month-name">{{ group.month }}</span>
+        <span class="month-rule" aria-hidden="true"></span>
+      </h2>
 
-<div class="event-month" *ngFor="let group of eventGroups">
-<h2 class="month-heading">{{ group.month }}</h2>
+      <div class="month-events">
+        <article class="card event-card" *ngFor="let event of group.events">
 
-<article class="event-card" *ngFor="let event of group.events">
+          <p class="event-date">
+            <span class="event-day">{{ event.day }}</span>
+            <span class="event-month">{{ group.monthShort }}</span>
+          </p>
 
-<div class="event-header">
-<h3>{{ event.title }}</h3>
+          <div class="event-body">
+            <h3>{{ event.title }}</h3>
+            <p class="event-description">{{ event.description }}</p>
 
-</div>
+            <div class="meta">
+              <p class="meta-row">
+                <lucide-icon name="clock" size="16"></lucide-icon>
+                <span>{{ event.time }}</span>
+              </p>
+              <p class="meta-row">
+                <lucide-icon name="map-pin" size="16"></lucide-icon>
+                <span>{{ event.location }}</span>
+              </p>
+            </div>
 
-<span class="event-badge">{{ event.monthShort }} {{ event.day }}</span>
+            <p class="event-note" *ngIf="event.note">{{ event.note }}</p>
+          </div>
 
-<p class="event-description">{{ event.description }}</p>
+        </article>
+      </div>
 
-<div class="event-divider"></div>
+    </div>
 
-<div class="event-meta">
-<p *ngFor="let scheduleItem of event.schedule">
-<lucide-icon name="calendar-days" size="16"></lucide-icon>
-<span>{{ scheduleItem }}</span>
-</p>
+  </div>
+</section>
 
-<p>
-<lucide-icon name="clock" size="16"></lucide-icon>
-<span>{{ event.time }}</span>
-</p>
-
-<p>
-<lucide-icon name="map-pin" size="16"></lucide-icon>
-<span>{{ event.location }}</span>
-</p>
-</div>
-
-</article>
-</div>
-
+<section class="section calendar-foot">
+  <div class="shell-narrow calendar-foot-inner">
+    <h2>Hear about events first</h2>
+    <p>Follow the WhatsApp channel and we will post dates and changes as they happen.</p>
+    <a
+      class="btn btn-primary"
+      href="https://whatsapp.com/channel/0029Vb9vqLuJ3jv0Ayli350o"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Follow on WhatsApp</a>
+  </div>
 </section>

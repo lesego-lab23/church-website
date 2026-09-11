@@ -3,16 +3,19 @@ import { Component } from '@angular/core';
 interface EventItem {
   month: string;
   monthShort: string;
+  /** Day or day range within the month, e.g. "25" or "24-28". */
   day: string;
   title: string;
-  schedule: string[];
   time: string;
   location: string;
   description: string;
+  /** Shown only where the usual pattern changes for that event. */
+  note?: string;
 }
 
 interface EventMonthGroup {
   month: string;
+  monthShort: string;
   events: EventItem[];
 }
 
@@ -25,86 +28,88 @@ export class EventsComponent {
   readonly eventGroups: EventMonthGroup[] = this.groupEventsByMonth([
     {
       month: 'July',
-      monthShort: 'JUL',
+      monthShort: 'Jul',
       day: '25',
       title: 'Talent Show',
-      schedule: ['July 25'],
-      time: '7:00 PM',
+      time: '19:00',
       location: 'Fellowship Hall',
       description: 'Fellowship with the church family as people share their gifts and creativity.'
     },
     {
       month: 'August',
-      monthShort: 'AUG',
+      monthShort: 'Aug',
       day: '1',
       title: 'Parenting Masterclass',
-      schedule: ['August 1'],
-      time: '2:00 PM',
+      time: '14:00',
       location: 'Fellowship Hall',
-      description: "Invest into your children's future."
+      description: "Practical teaching on raising children, and time to ask the questions you actually have."
     },
     {
       month: 'August',
-      monthShort: 'AUG',
-      day: '24-28',
+      monthShort: 'Aug',
+      day: '24–28',
       title: 'South African Bible Conference',
-      schedule: ['August 24-28'],
-      time: '6:00 PM',
-      location: '23 Summit Dr, Rispark, Johannesburg',
-      description: "Join us for the South African Bible Conference.Please note there will be morning seminars from 25-28 August at 09:00 AM."
+      time: '18:00',
+      location: '23 Summit Drive, Rispark, Johannesburg',
+      description: 'Five evenings of teaching with churches from across the country.',
+      note: 'Morning seminars run 25–28 August at 09:00.'
     },
     {
       month: 'September',
-      monthShort: 'SEP',
+      monthShort: 'Sep',
       day: '12',
       title: 'Marriage Class',
-      schedule: ['September 12'],
-      time: '2:00 PM',
+      time: '14:00',
       location: 'Fellowship Hall',
       description: 'Strengthen your marriage with practical teaching and encouragement.'
     },
     {
       month: 'September',
-      monthShort: 'SEP',
+      monthShort: 'Sep',
       day: '19',
       title: 'Fashion Show',
-      schedule: ['September 19'],
-      time: 'To be confirmed',
+      time: 'Time to be confirmed',
       location: 'Fellowship Hall',
       description: 'Fellowship with the youth as they bring their creativity and talent to the stage.'
     },
-
     {
       month: 'October',
-      monthShort: 'OCT',
-      day: '11-14',
+      monthShort: 'Oct',
+      day: '11–14',
       title: 'Revival with Ps Dragici from Romania',
-      schedule: ['October 11-14'],
-      time: '10;30 AM & 5:00 PM',
+      time: '10:30 & 17:00',
       location: 'Main Sanctuary',
-      description: "Please note from the 12th-14th services will only be at 7:00pm."
+      description: 'Four days of revival meetings with a visiting pastor from Romania.',
+      note: 'From 12–14 October there is one service only, at 19:00.'
     },
     {
       month: 'November',
-      monthShort: 'NOV',
+      monthShort: 'Nov',
       day: '14',
       title: 'Marriage Class',
-      schedule: ['November 14'],
-      time: '2:00 PM',
+      time: '14:00',
       location: 'Main Sanctuary',
       description: 'Strengthen your marriage with practical teaching and encouragement.'
     },
     {
       month: 'November',
-      monthShort: 'NOV',
+      monthShort: 'Nov',
       day: '21',
-      title: 'Parenting Masterclass #3',
-      schedule: ['November 21'],
-      time: '2:00',
+      title: 'Parenting Masterclass',
+      time: '14:00',
       location: 'Main Sanctuary',
-      description: "Invest into your children's future."
+      description: 'The third session in the parenting series. Come even if you missed the first two.'
     }
   ]);
+
+  /** "8 events, July through November" — the shape of the diary at a glance. */
+  get diarySummary(): string {
+    const total = this.eventGroups.reduce((count, group) => count + group.events.length, 0);
+    const first = this.eventGroups[0]?.month;
+    const last = this.eventGroups[this.eventGroups.length - 1]?.month;
+
+    return `${total} events, ${first} through ${last}`;
+  }
 
   private groupEventsByMonth(events: EventItem[]): EventMonthGroup[] {
     return events.reduce<EventMonthGroup[]>((groups, event) => {
@@ -115,6 +120,7 @@ export class EventsComponent {
       } else {
         groups.push({
           month: event.month,
+          monthShort: event.monthShort,
           events: [event]
         });
       }

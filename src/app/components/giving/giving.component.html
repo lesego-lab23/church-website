@@ -1,130 +1,70 @@
-<section class="giving-section">
+<header class="page-head giving-head">
+  <div class="shell"><div class="page-head-inner">
+    <p class="eyebrow">Giving</p>
+    <hr class="rule">
+    <h1>Give to the work here</h1>
+    <blockquote class="verse">
+      <p>
+        Each of you should give what you have decided in your heart to give,
+        not reluctantly or under compulsion, for God loves a cheerful giver.
+      </p>
+      <cite>2 Corinthians 9:7</cite>
+    </blockquote>
+    </div>
+  </div>
+</header>
 
-<div class="giving-header">
+<section class="section giving">
+  <div class="shell giving-grid">
 
-<lucide-icon name="heart"></lucide-icon>
+    <!-- Bank details sit on the ink ground: this is the panel people
+         come to the page for, so it gets the weight. -->
+    <div class="bank-panel" appReveal>
+      <h2 class="panel-heading">Bank transfer</h2>
+      <p class="panel-note">Use the button beside a line to copy it.</p>
 
-<h1>Give Generously</h1>
+      <ul class="detail-list">
+        <li class="detail-row" *ngFor="let detail of bankDetails">
+          <span class="detail-text">
+            <span class="detail-label">{{ detail.label }}</span>
+            <span class="detail-value">{{ detail.value }}</span>
+          </span>
+          <button
+            class="copy-btn"
+            type="button"
+            (click)="copy(detail.value, detail.label)"
+            [attr.aria-label]="'Copy ' + detail.label.toLowerCase()"
+          >
+            <lucide-icon name="copy" size="18"></lucide-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
 
-<p class="verse">
-"Each of you should give what you have decided in your heart to give,
-not reluctantly or under compulsion, for God loves a cheerful giver."
-</p>
+    <div class="qr-panel" [appReveal]="90">
+      <h2 class="panel-heading panel-heading--light">Scan to give</h2>
+      <p class="panel-note panel-note--light">
+        Scanning this code opens our SnapScan page.
+      </p>
+      <div class="qr-frame">
+        <img src="assets/snapscan.jpeg" alt="SnapScan QR code for The Potter's House Melville Church" loading="lazy">
+      </div>
+    </div>
 
-<p class="scripture">2 Corinthians 9:7</p>
+  </div>
+</section>
 
-</div>
-
-
-<div class="giving-grid">
-
-<!-- LEFT SIDE : BANK DETAILS -->
-<div class="bank-details">
-
-<h2>Bank Account Details</h2>
-
-<div class="detail-row">
-
-<div class="detail-left">
-
-<lucide-icon name="building"></lucide-icon>
-
-<div>
-<p class="label">Bank Name</p>
-<p class="value">ABSA</p>
-</div>
-
-</div>
-
-<button class="copy-btn" type="button" (click)="copy('ABSA', 'Bank name')" aria-label="Copy bank name">
-<lucide-icon name="copy"></lucide-icon>
-</button>
-
-</div>
-
-
-<div class="detail-row">
-
-<div class="detail-left">
-
-<lucide-icon name="credit-card"></lucide-icon>
-
-<div>
-<p class="label">Account Name</p>
-<p class="value">POTTERS HOUSE</p>
-</div>
-
-</div>
-
-<button class="copy-btn" type="button" (click)="copy('POTTERS HOUSE', 'Account name')" aria-label="Copy account name">
-<lucide-icon name="copy"></lucide-icon>
-</button>
-
-</div>
-
-
-<div class="detail-row">
-
-<div class="detail-left">
-
-<lucide-icon name="credit-card"></lucide-icon>
-
-<div>
-<p class="label">Account Number</p>
-<p class="value">9100563408</p>
-</div>
-
-</div>
-
-<button class="copy-btn" type="button" (click)="copy('9100563408', 'Account number')" aria-label="Copy account number">
-<lucide-icon name="copy"></lucide-icon>
-</button>
-
-</div>
-
-
-<div class="detail-row">
-
-<div class="detail-left">
-
-<lucide-icon name="credit-card"></lucide-icon>
-
-<div>
-<p class="label">Branch Code</p>
-<p class="value">632005</p>
-</div>
-
-</div>
-
-<button class="copy-btn" type="button" (click)="copy('632005', 'Branch code')" aria-label="Copy branch code">
-<lucide-icon name="copy"></lucide-icon>
-</button>
-
-</div>
-
-</div>
-
-
-<!-- RIGHT SIDE : QR CODE -->
-
-<div class="qr-card">
-
-<h2>Scan to Give</h2>
-
-<div class="qr-container">
-
-<img src="assets/snapscan.jpeg" alt="QR code">
-
-</div>
-
-<p class="qr-text">
-Scan this QR code and you will be redirected to our snapscan portal.
-</p>
-
-</div>
-
-</div>
-
+<section class="section giving-foot">
+  <div class="shell-narrow giving-foot-inner">
+    <h2>Where it goes</h2>
+    <p>
+      Giving keeps the doors open five days a week, supports the outreach work
+      across Johannesburg, and sends people out to plant churches.
+    </p>
+    <a routerLink="/contact" class="link-arrow">
+      Ask us anything about giving <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
 </section>
 
 <div

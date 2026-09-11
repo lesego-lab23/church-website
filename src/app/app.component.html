@@ -1,2 +1,68 @@
+<span id="top" tabindex="-1" #pageTop></span>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+
+<main id="main" tabindex="-1">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+
+    <div class="footer-identity">
+      <span class="footer-mark" role="img" aria-label="The Potter's House logo"></span>
+      <p class="footer-name">The Potter's House<br>Melville Church</p>
+      <p class="footer-line">Where Jesus Christ is changing lives.</p>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-heading">Every week</h2>
+      <ul class="footer-list">
+        <li *ngFor="let entry of weeklyRhythm">
+          <span class="footer-day">{{ entry.day }}</span>
+          <span class="footer-detail">{{ entry.times }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-heading">Find us</h2>
+      <address class="footer-address">
+        5 Sunbury Avenue<br>
+        Auckland Park<br>
+        Johannesburg, 2092
+      </address>
+      <a class="footer-link" href="tel:+27710952892">+27 71 095 2892</a>
+      <a class="footer-link" href="mailto:smkhabela98@gmail.com">smkhabela98&#64;gmail.com</a>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-heading">Follow</h2>
+      <ul class="footer-list footer-social">
+        <li *ngFor="let channel of channels">
+          <a class="footer-link" [href]="channel.url" target="_blank" rel="noopener noreferrer">{{ channel.name }}</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="shell footer-baseline">
+    <p>© {{ year }} The Potter's House Melville Church</p>
+    <a class="footer-link" routerLink="/giving">Give</a>
+  </div>
+</footer>
+
+<button
+  class="to-top"
+  type="button"
+  [class.is-visible]="isPastFold"
+  [attr.tabindex]="isPastFold ? 0 : -1"
+  [attr.aria-hidden]="!isPastFold"
+  (click)="scrollToTop()"
+  aria-label="Back to top"
+>
+  <lucide-icon name="arrow-up" size="20"></lucide-icon>
+</button>
