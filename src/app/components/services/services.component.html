@@ -1,42 +1,72 @@
-<section class="services-section">
+<header class="page-head">
+  <div class="shell"><div class="page-head-inner">
+    <p class="eyebrow">Every week</p>
+    <hr class="rule">
+    <h1>Our services</h1>
+    <p class="lead">
+      Five gatherings, week in and week out. Come to any of them — there is nothing
+      you need to bring and nothing you need to know beforehand.
+    </p>
+    <p class="page-meta">Next gathering: {{ nextLabel }}</p>
+    </div>
+  </div>
+</header>
 
-<h1>Our Services</h1>
+<section class="section schedule">
+  <div class="shell">
 
-<div class="services-grid">
+    <!-- Grouped by day because a weekly schedule is what this is;
+         the day, not a card index, is the thing a visitor scans for. -->
+    <div class="day-block" *ngFor="let day of days; let i = index" [appReveal]="i * 70">
 
-<article class="service-card" *ngFor="let service of services">
+      <div class="day-label">
+        <h2>{{ day.name }}</h2>
+        <span class="day-count">{{ day.gatherings.length }} {{ day.gatherings.length === 1 ? 'gathering' : 'gatherings' }}</span>
+      </div>
 
-<div class="service-header">
-<h3>{{ service.title }}</h3>
-</div>
+      <div class="day-services">
+        <article
+          class="card service-card"
+          *ngFor="let gathering of day.gatherings"
+          [class.is-next]="isNext(gathering)"
+        >
+          <p class="service-time">{{ formatTime(gathering) }}</p>
 
-<span class="service-badge">{{ service.badge }}</span>
+          <div class="service-body">
+            <div class="service-titles">
+              <h3>{{ gathering.name }}</h3>
+              <span class="badge" [class.badge-ruby]="isNext(gathering)">
+                {{ isNext(gathering) ? 'Next up' : gathering.kind }}
+              </span>
+            </div>
 
-<p class="service-description">
-{{ service.description }}
-</p>
+            <p class="service-description">{{ gathering.description }}</p>
 
-<div class="service-divider"></div>
+            <div class="meta">
+              <p class="meta-row">
+                <lucide-icon name="map-pin" size="16"></lucide-icon>
+                <span>{{ gathering.location }}</span>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
 
-<div class="service-meta">
-<p>
-<lucide-icon name="calendar-days" size="16"></lucide-icon>
-<span>{{ service.day }}</span>
-</p>
+    </div>
 
-<p>
-<lucide-icon name="clock" size="16"></lucide-icon>
-<span>{{ service.time }}</span>
-</p>
+  </div>
+</section>
 
-<p>
-<lucide-icon name="map-pin" size="16"></lucide-icon>
-<span>{{ service.location }}</span>
-</p>
-</div>
-
-</article>
-
-</div>
-
+<section class="section schedule-foot">
+  <div class="shell-narrow schedule-foot-inner">
+    <h2>Planning to visit?</h2>
+    <p>
+      Let us know you are coming and we will look out for you, or just arrive on
+      Sunday morning — both work.
+    </p>
+    <div class="schedule-foot-buttons">
+      <a routerLink="/contact" class="btn btn-primary">Get in touch</a>
+      <a routerLink="/events" class="btn btn-outline">Upcoming events</a>
+    </div>
+  </div>
 </section>

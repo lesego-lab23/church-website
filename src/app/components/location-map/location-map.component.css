@@ -1,0 +1,167 @@
+.locate {
+  --section-pad: clamp(3.5rem, 7vw, 5.5rem);
+  background: var(--haze);
+  border-top: 1px solid var(--line);
+}
+
+.locate-head { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+.locate-head h2 { margin-bottom: 0; }
+
+.locate-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  align-items: stretch;
+}
+
+.map-frame {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--haze-deep);
+  box-shadow: var(--lift-2);
+  /* Safari on iOS ignores border-radius when clipping an iframe unless the
+     container is composited; the mask forces it to clip properly. */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+/* Absolute rather than height:100% — a percentage height against a parent
+   that only has min-height can resolve to zero and collapse the map. */
+.map-frame iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Touch ---------- */
+
+/* On a touch screen a drag that starts on the map pans the map instead of
+   scrolling the page, which traps the reader. The map stays inert until
+   it is tapped; pointer devices are unaffected. */
+.map-shield {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  border: 0;
+  background: rgba(11, 27, 58, .06);
+  color: var(--paper);
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.map-shield span {
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  background: var(--ink);
+  font-size: .875rem;
+  font-weight: 600;
+  box-shadow: var(--lift-2);
+}
+
+@media (pointer: coarse) {
+  .map-frame:not(.is-active) .map-shield { display: flex; }
+  .map-frame:not(.is-active) iframe { pointer-events: none; }
+}
+
+.locate-panel {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  color: var(--on-dark);
+}
+
+.locate-panel h3 {
+  margin: 0 0 .5rem;
+  color: var(--paper);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.locate-address {
+  margin: 0 0 1.5rem;
+  font-style: normal;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--on-dark);
+}
+
+.locate-notes {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  gap: .6rem;
+  font-size: .9375rem;
+  color: var(--on-dark-muted);
+}
+
+/* A ruby tick in place of a bullet, matching the event notes. */
+.locate-notes li {
+  padding-left: .875rem;
+  border-left: 2px solid rgba(192, 24, 43, .55);
+  line-height: 1.5;
+}
+
+.locate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.25rem;
+  /* Pinned to the foot of the panel however tall the map makes it. */
+  margin-top: auto;
+}
+
+.locate-cta .arrow { transition: transform .25s ease; }
+.locate-cta:hover .arrow { transform: translateX(3px); }
+
+/* Whatever a page projects alongside the directions button reads as the
+   quieter, secondary action. */
+.locate-actions ::ng-deep a:not(.btn) {
+  color: var(--on-dark);
+  font-weight: 600;
+  font-size: .9375rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(169, 186, 216, .4);
+  padding-bottom: 1px;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.locate-actions ::ng-deep a:not(.btn):hover {
+  color: var(--paper);
+  border-color: var(--ruby-lift);
+}
+
+.locate-hint {
+  margin: .75rem 0 0;
+  font-size: .8125rem;
+  color: var(--on-dark-muted);
+}
+
+@media (max-width: 860px) {
+  .locate-grid { grid-template-columns: minmax(0, 1fr); }
+  .locate-actions { margin-top: 0; }
+
+  /* Stacked, the map has no sibling to take its height from, so it sets
+     its own. min-height is dropped so the ratio is the only rule. */
+  .map-frame {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 560px) {
+  .map-frame { aspect-ratio: 1 / 1; }
+  .locate-cta { width: 100%; justify-content: center; }
+}

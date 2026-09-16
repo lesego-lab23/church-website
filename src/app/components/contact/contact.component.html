@@ -1,95 +1,116 @@
-<section class="contact-section">
-
-  <!-- Header -->
-  <div class="contact-header">
-    <p class="section-tag">REACH OUT</p>
-    <h1>Contact Us</h1>
-    <p class="section-description">
-      We'd love to hear from you. Whether you have a question or prayer request — don't hesitate to reach out.
+<header class="page-head">
+  <div class="shell"><div class="page-head-inner">
+    <p class="eyebrow">Reach out</p>
+    <hr class="rule">
+    <h1>Contact us</h1>
+    <p class="lead">
+      A question, a prayer request, or directions for Sunday — whichever it is,
+      we would like to hear from you.
     </p>
+    </div>
   </div>
+</header>
 
-  <!-- Grid -->
-  <div class="contact-grid">
+<section class="section contact">
+  <div class="shell contact-grid">
 
-    <!-- Contact Info -->
-    <div class="contact-info">
-      <h2>Get in Touch</h2>
+    <div class="contact-column" appReveal>
+      <h2 class="column-heading">Get in touch</h2>
 
-      <div class="contact-item">
-        <lucide-icon name="phone" size="24" class="icon"></lucide-icon>
-        <div class="contact-text">
-          <p class="label">Phone</p>
-          <p class="value">+27 71 095 2892</p>
-        </div>
-      </div>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <lucide-icon name="phone" size="20"></lucide-icon>
+          <span class="contact-text">
+            <span class="contact-label">Phone</span>
+            <a class="contact-value" href="tel:+27710952892">+27 71 095 2892</a>
+          </span>
+        </li>
 
-      <div class="contact-item">
-        <lucide-icon name="mail" size="24" class="icon"></lucide-icon>
-        <div class="contact-text">
-          <p class="label">Email</p>
-          <p class="value">smkhabela98@gmail.com</p>
-        </div>
-      </div>
+        <li class="contact-item">
+          <lucide-icon name="mail" size="20"></lucide-icon>
+          <span class="contact-text">
+            <span class="contact-label">Email</span>
+            <a class="contact-value" href="mailto:smkhabela98&#64;gmail.com">smkhabela98&#64;gmail.com</a>
+          </span>
+        </li>
 
-      <div class="contact-item">
-        <lucide-icon name="map-pin" size="24" class="icon"></lucide-icon>
-        <div class="contact-text">
-          <p class="label">Address</p>
-          <p class="value">5 Sunbury Avenue, Auckland Park, Johannesburg</p>
-        </div>
-      </div>
+        <li class="contact-item">
+          <lucide-icon name="map-pin" size="20"></lucide-icon>
+          <span class="contact-text">
+            <span class="contact-label">Address</span>
+            <span class="contact-value">{{ location.address }}</span>
+          </span>
+        </li>
 
-      <div class="contact-item">
-        <lucide-icon name="clock" size="24" class="icon"></lucide-icon>
-        <div class="contact-text">
-          <p class="label">Office Hours</p>
-          <p class="value">Mon – Fri : 9 AM – 5 PM</p>
-        </div>
-      </div>
+        <li class="contact-item">
+          <lucide-icon name="clock" size="20"></lucide-icon>
+          <span class="contact-text">
+            <span class="contact-label">Office hours</span>
+            <span class="contact-value">Monday to Friday, 09:00 – 17:00</span>
+          </span>
+        </li>
+      </ul>
+
     </div>
 
-    <!-- Social Media + Map -->
-    <div class="social-section">
-      <h2>Follow Us</h2>
-      <p class="social-description">
-        Stay connected with The Potter's House Melville Church  through our social media channels for inspiration and event updates.
+    <div class="contact-column" [appReveal]="90">
+      <h2 class="column-heading">Follow us</h2>
+      <p class="column-text">
+        Service changes, event dates and encouragement through the week.
       </p>
 
-      <!-- Social Cards -->
       <div class="social-grid">
-        <a href="https://whatsapp.com/channel/0029Vb9vqLuJ3jv0Ayli350o" class="social-card">
-          <svg class="social-icon social-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <a
+          class="social-card"
+          href="https://whatsapp.com/channel/0029Vb9vqLuJ3jv0Ayli350o"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M19.05 4.94A9.9 9.9 0 0 0 12.01 2C6.5 2 2.01 6.48 2.01 12c0 1.76.46 3.48 1.34 5L2 22l5.13-1.34A9.96 9.96 0 0 0 12.01 22c5.51 0 9.99-4.48 9.99-10 0-2.67-1.04-5.18-2.95-7.06Zm-7.04 15.38a8.3 8.3 0 0 1-4.23-1.16l-.3-.18-3.05.8.82-2.98-.2-.31A8.26 8.26 0 0 1 3.7 12c0-4.57 3.73-8.3 8.31-8.3 2.22 0 4.3.86 5.87 2.43A8.24 8.24 0 0 1 20.3 12c0 4.57-3.72 8.3-8.29 8.3Zm4.55-6.18c-.25-.13-1.47-.73-1.7-.81-.23-.09-.39-.13-.56.13-.17.26-.64.81-.79.98-.15.17-.29.2-.54.07-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.45-1.38-1.69-.15-.26-.02-.39.11-.52.11-.1.25-.26.37-.39.12-.13.16-.23.24-.39.08-.16.04-.29-.02-.42-.06-.13-.56-1.35-.77-1.84-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.07-.65.31-.22.25-.85.83-.85 2.02 0 1.18.87 2.33.99 2.49.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.39.51.58.18 1.1.15 1.52.09.46-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.09-.23-.15-.48-.28Z"/>
           </svg>
-          WhatsApp
+          <span class="social-name">WhatsApp</span>
+          <span class="social-handle">Channel updates</span>
         </a>
-        <a href="https://www.instagram.com/pottershousemelville?igsh=bmFxdGo5OWloNnlv" class="social-card">
-          <lucide-icon name="instagram" size="20" class="social-icon"></lucide-icon>
-          Instagram
+
+        <a
+          class="social-card"
+          href="https://www.instagram.com/pottershousemelville?igsh=bmFxdGo5OWloNnlv"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <lucide-icon name="instagram" size="22" class="social-icon"></lucide-icon>
+          <span class="social-name">Instagram</span>
+          <span class="social-handle">Photos from church life</span>
         </a>
-        <a href="https://www.youtube.com/@PottersHouseMelville" class="social-card">
-          <lucide-icon name="youtube" size="20" class="social-icon"></lucide-icon>
-          YouTube
+
+        <a
+          class="social-card"
+          href="https://www.youtube.com/@PottersHouseMelville"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <lucide-icon name="youtube" size="22" class="social-icon"></lucide-icon>
+          <span class="social-name">YouTube</span>
+          <span class="social-handle">Watch past services</span>
         </a>
-        <a href="https://www.tiktok.com/@cafe180_unfiltered?_r=1&_t=ZS-95TTqTr8B86" class="social-card">
-          <svg class="social-icon social-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+
+        <a
+          class="social-card"
+          href="https://www.tiktok.com/@cafe180_unfiltered?_r=1&amp;_t=ZS-95TTqTr8B86"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M16.6 3c.18 1.53 1.03 3.18 2.84 4.05.93.45 1.86.58 2.56.58v2.77a8.1 8.1 0 0 1-2.66-.44 7.23 7.23 0 0 1-2.02-1.1v6.12c0 3.19-2.6 5.79-5.79 5.79S5.74 18.17 5.74 15s2.6-5.76 5.79-5.76c.28 0 .56.02.83.07v2.84a2.96 2.96 0 0 0-.83-.12A2.97 2.97 0 0 0 8.55 15a2.99 2.99 0 0 0 5.97 0V3h2.08Z"/>
           </svg>
-          TikTok
+          <span class="social-name">TikTok</span>
+          <span class="social-handle">Cafe 180 Unfiltered</span>
         </a>
       </div>
-
-      <!-- Map Box -->
-      <div class="map-box">
-        <lucide-icon name="map-pin" size="32" class="mb-3 text-gold"></lucide-icon>
-        <p class="map-title">Visit Us</p>
-        <p class="map-address">5 Sunbury Avenue, Auckland Park, Johannesburg</p>
-        <a href="https://www.google.com/maps/dir//5+Sunbury+Ave,+Auckland+Park,+Johannesburg,+2092/@-26.1795944,28.0054468,17z/data=!4m17!1m8!3m7!1s0x1e950b8de670636d:0x48aa4be3ac3c9ac3!2s5+Sunbury+Ave,+Auckland+Park,+Johannesburg,+2092!3b1!8m2!3d-26.1795992!4d28.0080217!16s%2Fg%2F11j2yrfg_r!4m7!1m0!1m5!1m1!1s0x1e950b8de670636d:0x48aa4be3ac3c9ac3!2m2!1d28.0080217!2d-26.1795992?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Get Directions →</a>
-      </div>
-
     </div>
 
   </div>
-
 </section>
+
+<app-location-map></app-location-map>

@@ -1,119 +1,136 @@
-
 <section class="hero">
+  <img src="assets/hero.jpeg" alt="The congregation standing in worship at the Auckland Park sanctuary" class="hero-image">
+  <div class="hero-wash"></div>
 
-  <img src="assets/hero.jpeg" class="hero-image">
-
-  <div class="hero-overlay"></div>
-
-  <div class="hero-content">
-
-    <p class="hero-welcome">WELCOME TO</p>
-
-    <h1>The Potters House Melville Church </h1>
-
-    <p class="hero-description">
-      Where Jesus Christ is changing lives.
-         Join us for worship, fellowship, and community impact.
+  <div class="shell hero-content">
+    <p class="eyebrow eyebrow--light hero-eyebrow">Auckland Park, Johannesburg</p>
+    <h1 class="hero-title">The doors are open<br>five days a week.</h1>
+    <p class="hero-text">
+      The Potter's House Melville is a church where Jesus Christ is changing lives.
+      Come for worship, stay for the people, and find somewhere to belong.
     </p>
-
     <div class="hero-buttons">
-
-      <a routerLink="/services" class="primary-btn">
-        Our Services →
-      </a>
-
-      <a routerLink="/contact" class="secondary-btn">
-        Get in Touch
-      </a>
-
+      <a routerLink="/services" class="btn btn-primary">Plan your first visit</a>
+      <a routerLink="/contact" class="btn btn-ghost">Get in touch</a>
     </div>
-
   </div>
-
 </section>
 
+<!-- Signature: the week itself. This church gathers five days out of
+     seven, so the week is the most characteristic thing about it — and
+     the one thing a first-time visitor actually needs. -->
+<section class="week-band">
+  <div class="shell">
+    <div class="week-card">
 
+      <div class="week-next">
+        <p class="eyebrow week-next-eyebrow">Next gathering</p>
+        <p class="week-next-day">{{ nextLabel }}</p>
+        <p class="week-next-detail">{{ nextDetail }}</p>
+      </div>
 
-<section class="quick-info">
+      <ol class="week-strip" aria-label="Weekly gathering rhythm">
+        <li
+          *ngFor="let day of week"
+          class="week-day"
+          [class.has-service]="day.gatherings.length"
+          [class.is-next]="day.isNext"
+          [class.is-today]="day.isToday"
+        >
+          <span class="week-initial" [attr.title]="day.name">{{ day.initial }}</span>
+          <span class="week-times">
+            <span *ngIf="!day.gatherings.length" class="week-rest" aria-label="No gathering">—</span>
+            <span *ngFor="let gathering of day.gatherings" class="week-time">
+              {{ formatTime(gathering) }}
+            </span>
+          </span>
+        </li>
+      </ol>
 
-<div class="info-grid">
-
-<div class="info-card">
-
-<lucide-icon name="clock"></lucide-icon>
-
-<h3> Main Service Times</h3>
-
-<p>Sundays: 10:30 AM & 17:00 PM</p>
-<p>Wednesdays: 7:00 PM</p>
-
-</div>
-
-<div class="info-card">
-
-<lucide-icon name="map-pin"></lucide-icon>
-
-<h3>Location</h3>
-
-<p>5 Sunbury Avenue, Auckland Park</p>
-<p>Johannesburg</p>
-
-</div>
-
-<div class="info-card">
-
-<lucide-icon name="mail"></lucide-icon>
-
-<h3>Our Mission</h3>
-
-<p>
- Our mission is to help overcome the difficulties that life presents
-  through a practical demonstration of how to live the Chrstian life by means of discipleship. 
-</p>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
-<section class="about">
-
-<p class="section-tag">ABOUT US</p>
-
-<h2>A Community Built on Faith</h2>
-
-<p class="about-text">
-At The Potters House Melville Church, we help people live the Christian life through practical lessons and leading by example.
- We believe in guiding others through faith, prayer, fellowship, and outreach, showing God’s love in action.
-Our core experiences include salvation, water baptism, and Holy Spirit baptism, and we seek to reflect Christ in everything we do.
-</p>
-
-<a routerLink="/services" class="about-link">
-Learn about our services →
-</a>
-
-</section>
-
-<section class="leaders">
-
-<p class="section-tag">OUR LEADERS</p>
-
-<h2>Meet Our Leaders</h2>
-
-<div class="leaders-grid">
-
-  <article class="leader-card" *ngFor="let leader of leaders">
-
-    <img [src]="leader.image" [alt]="leader.name" class="leader-image">
-
-    <div class="leader-content">
-      <h3>{{ leader.name }}</h3>
-      <p class="leader-title">{{ leader.title }}</p>
+<section class="section visit">
+  <div class="shell visit-grid">
+    <div class="visit-intro" appReveal>
+      <p class="eyebrow">Before you come</p>
+      <h2>What a first visit looks like</h2>
+      <p class="lead">
+        No dress code and no sign-up. Find a seat, sing if you want to,
+        and someone will say hello afterwards.
+      </p>
     </div>
 
-  </article>
-
-</div>
-
+    <ul class="visit-list">
+      <li class="visit-item" [appReveal]="0">
+        <lucide-icon name="clock" size="22"></lucide-icon>
+        <div>
+          <h3>Sundays at 10:30 and 17:00</h3>
+          <p>Midweek service on Wednesday at 19:00. Services run about ninety minutes.</p>
+        </div>
+      </li>
+      <li class="visit-item" [appReveal]="80">
+        <lucide-icon name="map-pin" size="22"></lucide-icon>
+        <div>
+          <h3>5 Sunbury Avenue, Auckland Park</h3>
+          <p>Street parking outside the sanctuary. We are a short drive from Melville.</p>
+        </div>
+      </li>
+      <li class="visit-item" [appReveal]="160">
+        <lucide-icon name="heart" size="22"></lucide-icon>
+        <div>
+          <h3>Bring your family</h3>
+          <p>Children are welcome in the service, and the youth meet on Friday evenings.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
 </section>
+
+<section class="section about">
+  <div class="shell-narrow about-inner" appReveal>
+    <p class="eyebrow">Our mission</p>
+    <hr class="rule">
+    <h2>Faith worked out in practice, not in theory</h2>
+    <p class="about-text">
+      We exist to help people overcome the difficulties life presents through a practical
+      demonstration of how to live the Christian life. That happens through discipleship:
+      prayer, fellowship and outreach, learned alongside people who are doing it already.
+    </p>
+    <p class="about-text">
+      Our core experiences are salvation, water baptism and the baptism of the Holy Spirit.
+      Everything else follows from there.
+    </p>
+    <a routerLink="/services" class="link-arrow">
+      See what happens each week <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
+
+<section class="section leaders">
+  <div class="shell">
+    <div class="leaders-head" appReveal>
+      <p class="eyebrow eyebrow--light">Our leaders</p>
+      <h2>The people you will meet</h2>
+    </div>
+
+    <div class="leaders-grid">
+      <article class="leader-card" *ngFor="let leader of leaders; let i = index" [appReveal]="i * 90">
+        <div class="leader-frame">
+          <img [src]="leader.image" [alt]="leader.name" class="leader-image" loading="lazy">
+        </div>
+        <h3 class="leader-name">{{ leader.name }}</h3>
+        <p class="leader-title">{{ leader.title }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Closes the page on the practical question: where do I actually go? -->
+<app-location-map
+  eyebrow="Visit us"
+  heading="There is a seat for you on Sunday."
+>
+  <a extraAction routerLink="/events">See what's coming up</a>
+</app-location-map>

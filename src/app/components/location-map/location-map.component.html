@@ -1,0 +1,54 @@
+<section class="section locate">
+  <div class="shell">
+
+    <div class="locate-head" appReveal>
+      <p class="eyebrow">{{ eyebrow }}</p>
+      <h2>{{ heading }}</h2>
+    </div>
+
+    <div class="locate-grid" [appReveal]="80">
+
+      <div class="map-frame" [class.is-active]="isMapActive">
+        <iframe
+          [src]="mapUrl"
+          title="Map showing The Potter's House Melville Church at 5 Sunbury Avenue, Auckland Park"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+
+        <button class="map-shield" type="button" (click)="isMapActive = true">
+          <span>Tap to move the map</span>
+        </button>
+      </div>
+
+      <div class="locate-panel">
+        <h3>The sanctuary</h3>
+        <address class="locate-address">{{ location.address }}</address>
+
+        <ul class="locate-notes">
+          <li>Street parking outside the building.</li>
+          <li>A short drive from Melville, off Kingsway Avenue.</li>
+          <li>Sunday services at 10:30 and 17:00.</li>
+        </ul>
+
+        <div class="locate-actions">
+          <a
+            class="btn btn-primary locate-cta"
+            [href]="directionsUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get directions
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <ng-content select="[extraAction]"></ng-content>
+        </div>
+
+        <p class="locate-hint">Opens Google Maps in a new tab.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>

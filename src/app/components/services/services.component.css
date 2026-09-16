@@ -1,131 +1,119 @@
-.services-section{
-padding:100px 10%;
-background:var(--bg-sage);
+.schedule {
+  --section-pad: clamp(3.5rem, 7vw, 5.5rem);
 }
 
-.services-section h1{
-text-align:center;
-margin-bottom:12px;
-font-size:44px;
+.day-block {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(2rem, 4vw, 2.75rem) 0;
+  border-top: 1px solid var(--line);
 }
 
-.services-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:24px;
-margin-top:40px;
+.day-block:first-child { border-top: 0; padding-top: 0; }
+.day-block:last-child { padding-bottom: 0; }
+
+.day-label {
+  position: sticky;
+  top: 116px;
+  align-self: start;
 }
 
-.service-card{
-background:var(--surface);
-border:1px solid #dfe5ee;
-border-radius:10px;
-padding:28px 24px;
-box-shadow:0 1px 2px rgba(15,23,42,.04);
-text-align:left;
+.day-label h2 {
+  margin: 0 0 .35rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 600;
 }
 
-.service-header{
-display:flex;
-align-items:flex-start;
-justify-content:space-between;
-gap:18px;
-margin-bottom:12px;
+.day-count {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
 }
 
-.service-header h3{
-color:#0f2344;
-font-size:20px;
-line-height:1.25;
-margin:0;
+.day-services {
+  display: grid;
+  gap: 1rem;
 }
 
-
-
-.service-corner-icon::after{
-content:"";
-position:absolute;
-right:-4px;
-top:2px;
-width:2px;
-height:5px;
-background:#c91d1d;
-border-radius:0 2px 2px 0;
+.service-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  align-items: start;
 }
 
-.service-badge{
-display:inline-flex;
-align-items:center;
-min-height:22px;
-padding:3px 12px;
-border-radius:999px;
-background:#dbeafe;
-color:#0f2344;
-font-size:12px;
-font-weight:700;
-line-height:1;
+/* Ruby marks only the gathering that happens next — the same rule
+   the home page week strip follows. */
+.service-card.is-next {
+  border-color: rgba(192, 24, 43, .35);
+  box-shadow: inset 3px 0 0 var(--ruby);
 }
 
-.service-description{
-color:#405f8d;
-font-size:16px;
-line-height:1.55;
-margin:18px 0 16px;
+.service-time {
+  margin: 0;
+  min-width: 4.5ch;
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--cobalt);
 }
 
-.service-divider{
-height:1px;
-background:#dde3eb;
-margin-bottom:16px;
+.service-card.is-next .service-time { color: var(--ruby); }
+
+.service-titles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: .5rem;
 }
 
-.service-meta{
-display:grid;
-gap:12px;
+.service-titles h3 { margin: 0; }
+
+.service-description {
+  margin: 0 0 .875rem;
+  color: var(--ink-soft);
+  font-size: .9375rem;
+  line-height: 1.65;
+  max-width: 56ch;
 }
 
-.service-meta p{
-display:flex;
-align-items:center;
-gap:12px;
-color:#0f2344;
-font-size:14px;
-line-height:1.4;
-margin:0;
+/* ---------- Closing band ---------- */
+
+.schedule-foot {
+  --section-pad: clamp(3.5rem, 7vw, 5.5rem);
+  background: var(--haze);
+  border-top: 1px solid var(--line);
 }
 
-.service-meta lucide-icon{
-color:#0f2344;
-flex:0 0 auto;
-width:16px;
-height:16px;
+.schedule-foot-inner { text-align: center; }
+
+.schedule-foot-inner p {
+  margin: 0 auto 1.75rem;
+  max-width: 48ch;
+  color: var(--ink-soft);
 }
 
-@media(max-width:900px){
-.services-section{
-padding:80px 6%;
-}
-}
-
-@media(max-width:600px){
-.services-section{
-padding:64px 5%;
+.schedule-foot-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .875rem;
+  justify-content: center;
 }
 
-.services-section h1{
-font-size:34px;
+.schedule-foot .btn-outline { background: var(--paper); }
+
+@media (max-width: 860px) {
+  .day-block { grid-template-columns: minmax(0, 1fr); }
+  .day-label { position: static; }
 }
 
-.services-grid{
-grid-template-columns:1fr;
-gap:20px;
-}
-
-.service-card{
-padding:24px 20px;
-}
-
-.service-header h3{
-font-size:19px;
-}
+@media (max-width: 520px) {
+  .service-card { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .schedule-foot-buttons .btn { flex: 1 1 auto; justify-content: center; }
 }
