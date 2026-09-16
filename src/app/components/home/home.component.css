@@ -273,6 +273,11 @@
   gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+.leader-card {
+  max-width: 360px;
+  justify-self: center;
+}
+
 .leader-frame {
   position: relative;
   aspect-ratio: 4 / 5;
@@ -316,6 +321,24 @@
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--cobalt-lift);
+}
+
+.other-works {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.other-works h3 {
+  margin-bottom: 1.25rem;
+  color: var(--paper);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.other-works-video {
+  display: block;
+  width: min(100%, 900px);
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  background: #14264C;
 }
 
 /* ============================ Responsive ============================ */
